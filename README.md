@@ -1,16 +1,39 @@
-# React + Vite
+# Assignment 6 — Task 5: Show One Person with Navigation
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Group Members
 
-Currently, two official plugins are available:
+- Abdulhamid Mamoun Alsaati
+- Amena Akhter Chowdhury
+- Nadeya Nusrat Ananna
+- Rumana Afrin Rumi
+- Nikuntajit Roy Chowdhury
+- Ziaullah Hassan
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## What does this app do?
 
-## React Compiler
+This React app searches for people (like actors or directors) using the TMDB (The Movie Database) API. It shows one person at a time and lets you move through the results using "Previous" and "Next" buttons.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## How does it work?
 
-## Expanding the ESLint configuration
+- When the app loads, it searches TMDB for people matching the query "spielberg".
+- It shows the first person found.
+- You can click "Next" or "Previous" to see other people in the results.
+- If there are no results, or if there’s an error, the app will show a message.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Main files
+
+- `App.jsx`: Handles searching, loading, error messages, and navigation.
+- `Person.jsx`: Displays details about each person.
+
+- `ImagesFor.jsx`: Fetches and displays images of the person from TMDB.
+- `KnownFor.jsx`: Shows information about movies or shows the person is known for.
+
+## How to run
+
+1. Install dependencies:  
+   `npm install`
+2. Start the app:  
+   `npm run dev`
+3. Open your browser to the local address shown in the terminal.
+
+---
