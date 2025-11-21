@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Person from "./Person.jsx";
+import Person from "./components/Person.jsx";
 
 const API_KEY = "81c722a8c9f90f6edec7e7c6b410de83";
 const QUERY = "spielberg";
