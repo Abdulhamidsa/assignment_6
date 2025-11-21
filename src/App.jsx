@@ -1,11 +1,3 @@
-// Group Members:
-// Abdulhamid Mamoun Alsaati
-// Amena Akhter Chowdhury
-// Nadeya Nusrat Ananna
-// Rumana Afrin Rumi
-// Nikuntajit Roy Chowdhury
-// Ziaullah Hassan
-
 import { useEffect, useState } from "react";
 import Person from "./components/Person.jsx";
 
