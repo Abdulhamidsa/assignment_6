@@ -1,35 +1,49 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState, useEffect } from "react";
+import "./App.css";
+import Person from "./Components/Persons";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [persons, setPersons] = useState([]);
+  const [index, setIndex] = useState(0);
+  const QUERY = "kim";
+  const API_KEY = "81c722a8c9f90f6edec7e7c6b410de83";
+
+  useEffect(() => {
+    fetch(`https://api.themoviedb.org/3/search/person?query=${QUERY}&api_key=${API_KEY}`)
+      .then((response) => response.json())
+      .then((data) => {
+        setPersons(data.results || []);
+        setIndex(0);
+        console.log(data.results);
+      });
+  }, [QUERY]);
+
+  const hasPersons = persons.length > 0;
+  const currentPerson = hasPersons ? persons[index] : null;
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div>
+      <h1>Person Viewer</h1>
+
+      {hasPersons && (
+        <div style={{ marginBottom: "1rem" }}>
+          <button onClick={() => setIndex((i) => i - 1)} disabled={index === 0}>
+            Previous
+          </button>
+
+          <span style={{ margin: "0 1rem" }}>
+            {index + 1} / {persons.length}
+          </span>
+
+          <button onClick={() => setIndex((i) => i + 1)} disabled={index === persons.length - 1}>
+            Next
+          </button>
+        </div>
+      )}
+
+      <Person person={currentPerson} apiKey={API_KEY} />
+    </div>
+  );
 }
 
-export default App
+export default App;
