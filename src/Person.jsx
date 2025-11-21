@@ -1,3 +1,9 @@
+import React from "react";
+
+function Person({ person }) {
+  return (
+    <div>
+      <h2>{person.name}</h2>
 export default function Person({ person }) {
   return (
     <div style={{ marginBottom: "1rem" }}>
@@ -7,3 +13,4 @@ export default function Person({ person }) {
   );
 }
 
+export default Person;
